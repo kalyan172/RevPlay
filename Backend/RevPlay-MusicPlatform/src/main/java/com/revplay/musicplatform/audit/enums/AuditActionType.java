@@ -1,0 +1,22 @@
+package com.revplay.musicplatform.audit.enums;
+
+
+public enum AuditActionType {
+    PLAYLIST_CREATED,
+    PLAYLIST_UPDATED,
+    PLAYLIST_DELETED,
+    SONG_ADDED,
+    SONG_REMOVED,
+    SONG_REORDERED,
+    LIKE_ADDED,
+    LIKE_REMOVED,
+    FOLLOW_ADDED,
+    FOLLOW_REMOVED,
+    PASSWORD_RESET,
+    PASSWORD_CHANGE,
+    ACCOUNT_STATUS_UPDATE,
+    PROFILE_UPDATE,
+    ROLE_CHANGED,
+    CONTENT_DELETED,
+    ADMIN_ACTION
+}

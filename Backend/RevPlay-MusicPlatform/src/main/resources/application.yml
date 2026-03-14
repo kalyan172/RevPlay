@@ -1,0 +1,66 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: revplay
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+  datasource:
+    url: ${DB_URL:}
+    username: ${DB_USERNAME:}
+    password: ${DB_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: ${MAIL_SMTP_AUTH:true}
+          connectiontimeout: ${MAIL_SMTP_CONNECTION_TIMEOUT_MS:5000}
+          timeout: ${MAIL_SMTP_TIMEOUT_MS:5000}
+          writetimeout: ${MAIL_SMTP_WRITE_TIMEOUT_MS:5000}
+          starttls:
+            enable: ${MAIL_SMTP_STARTTLS:true}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+  servlet:
+    multipart:
+      max-file-size: 1GB
+      max-request-size: 1GB
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+app:
+  security:
+    jwt:
+      secret: ${JWT_SECRET:}
+      access-token-expiration-seconds: ${JWT_ACCESS_EXPIRY_SECONDS:3600}
+      refresh-token-expiration-seconds: ${JWT_REFRESH_EXPIRY_SECONDS:1209600}
+  audit:
+    internal-api-key: ${INTERNAL_AUDIT_API_KEY:}
+
+revplay:
+  upload:
+    base-dir: ${UPLOAD_BASE_DIR:uploads}
+    songs-dir: ${UPLOAD_SONGS_DIR:songs}
+    podcasts-dir: ${UPLOAD_PODCASTS_DIR:podcasts}
+    images-dir: ${UPLOAD_IMAGES_DIR:images}
+    ads-dir: ${UPLOAD_ADS_DIR:ads}
+
+logging:
+  level:
+    com.revplay: INFO
