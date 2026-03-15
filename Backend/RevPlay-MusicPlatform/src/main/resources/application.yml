@@ -7,9 +7,9 @@ spring:
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:local}
   datasource:
-    url: ${DB_URL:}
-    username: ${DB_USERNAME:}
-    password: ${DB_PASSWORD:}
+    url: jdbc:mysql://revplay-db.cp44u4k2qxjq.ap-south-1.rds.amazonaws.com:3306/revplaydb
+    username: admin
+    password: Ananya1729
     driver-class-name: com.mysql.cj.jdbc.Driver
   mail:
     host: ${MAIL_HOST:smtp.gmail.com}
